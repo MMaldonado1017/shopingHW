@@ -1,19 +1,37 @@
 import java.util.Arrays;
 
-public class Customer extends Person {
+ abstract class Customer extends Person implements Discountable{
 
-    private String Product[];
+    private Product[] products;
     private Size size;
 
-    public Customer(String Name) {
-        super(Name);
+    public Customer(String name, Product[] products, Size size) {
+        super(name);
+        this.products = products;
+        this.size = size;
+    }
+
+    public Product[] getProducts() {
+        return products;
+    }
+
+    public void setProducts(Product[] products) {
+        this.products = products;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "Product=" + Arrays.toString(Product) +
-                ", Size='" + Size + '\'' +
+                "products=" + Arrays.toString(products) +
+                ", size=" + size +
                 '}';
     }
 }
